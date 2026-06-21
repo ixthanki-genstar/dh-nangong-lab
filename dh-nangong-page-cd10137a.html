@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南宫导航 · 轻量导航介绍页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f8f6f0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: #2e2b27;
+    line-height: 1.7;
+    font-size: 16px;
+    padding: 2rem 1.2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd6cb;
+  }
+  .logo-area {
+    font-weight: 550;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    color: #4f3f32;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: #4f3f32;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .nav-links a:hover {
+    border-bottom-color: #b3a089;
+  }
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1.2rem;
+    line-height: 1.2;
+    color: #2b241e;
+  }
+  .hero-text {
+    font-size: 1.05rem;
+    color: #3f3832;
+    max-width: 680px;
+    margin-bottom: 2.8rem;
+    background: #f1ede6;
+    padding: 1rem 1.6rem;
+    border-left: 5px solid #b3a089;
+    border-radius: 0 6px 6px 0;
+  }
+  .hero-text a {
+    color: #5e4a3a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+  .hero-text a:hover {
+    color: #362b23;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 2.5rem 0 1rem;
+    color: #3b322b;
+    border-left: 4px solid #b3a089;
+    padding-left: 0.8rem;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 1.8rem 0 0.5rem;
+  }
+  .scene-card {
+    background: #fcfaf7;
+    border: 1px solid #e3d9ce;
+    border-radius: 14px;
+    padding: 1.5rem 1.2rem 1.4rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    transition: box-shadow 0.2s, transform 0.1s;
+  }
+  .scene-card:hover {
+    box-shadow: 0 6px 14px rgba(80,60,40,0.06);
+    transform: translateY(-2px);
+  }
+  .scene-card h3 {
+    font-size: 1.1rem;
+    font-weight: 520;
+    margin-bottom: 0.6rem;
+    color: #3f342d;
+  }
+  .scene-card p {
+    font-size: 0.95rem;
+    color: #4f453e;
+    margin-bottom: 0.3rem;
+  }
+  .faq-section {
+    margin: 3rem 0 2rem;
+    background: #f4efe8;
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+  }
+  .faq-item {
+    margin-bottom: 1.2rem;
+  }
+  .faq-item:last-child {
+    margin-bottom: 0;
+  }
+  .faq-q {
+    font-weight: 550;
+    font-size: 1rem;
+    color: #2e241e;
+    margin-bottom: 0.2rem;
+  }
+  .faq-a {
+    color: #4c423b;
+    font-size: 0.92rem;
+    padding-left: 0.6rem;
+    border-left: 2px solid #cbbfb3;
+    padding-left: 0.8rem;
+  }
+  .faq-a a {
+    color: #5e4a3a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .tip-box {
+    background: #ece6dc;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin: 2.2rem 0 0.5rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    font-size: 0.93rem;
+    color: #3b322b;
+  }
+  .tip-box span {
+    font-weight: 550;
+    white-space: nowrap;
+  }
+  .footer-note {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd6cb;
+    font-size: 0.85rem;
+    color: #6f6258;
+  }
+  .footer-note a {
+    color: #5e4a3a;
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    body { padding: 1.5rem 1rem; }
+    h1 { font-size: 1.8rem; }
+    .hero-text { padding: 0.8rem 1.2rem; }
+    .faq-section { padding: 1.2rem 1rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .top-bar { flex-direction: column; align-items: stretch; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-area">⬡ 南宫导航</div>
+  <div class="nav-links">
+    <a href="#intro">介绍</a>
+    <a href="#scenes">场景</a>
+    <a href="#faq">说明</a>
+  </div>
+</div>
+
+<h1>南宫导航 · 快速识别站点用途</h1>
+
+<div class="hero-text" id="intro">
+  如果你刚打开这个页面，想弄清楚这个网站是做什么的——简单来说，<a href="https://dh-nangong.com">南宫导航</a> 是一个经过整理的信息索引，帮助你从分散的网络资源里找到相对靠谱的入口，减少漫无目的的搜索时间。它不生产内容，只做筛选和归类。
+</div>
+
+<h2 class="section-title" id="scenes">三个典型使用场景</h2>
+<div class="card-grid">
+  <div class="scene-card">
+    <h3>日常信息查找</h3>
+    <p>工作中需要快速找到行业报告、政策原文或常用工具站，不必每次都从头搜索，<a href="https://dh-nangong.com">南宫导航</a> 按类别整理了常用链接，可以省下一些重复查找的精力。</p>
+  </div>
+  <div class="scene-card">
+    <h3>兴趣方向探索</h3>
+    <p>想了解某个领域有哪些值得关注的网站、社区或学习资源，导航中收录了多个领域的精选站点，适合作为初步了解的起点。</p>
+  </div>
+  <div class="scene-card">
+    <h3>备选与校验</h3>
+    <p>当你常用的网站无法访问，或者需要核实某个信息源是否可靠，可以用导航里的备用链接或同类站点作为参考对照。</p>
+  </div>
+</div>
+
+<div class="faq-section" id="faq">
+  <div class="faq-item">
+    <div class="faq-q">⚬ 南宫导航收录了哪些类型的网站？</div>
+    <div class="faq-a">以实用型、工具型、信息型站点为主，涵盖技术文档、设计资源、数据查询、学术搜索、开源社区等领域，不包含娱乐或商业推广类内容。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">⚬ 链接会定期更新吗？</div>
+    <div class="faq-a">维护时会检查链接的有效性，并替换失效或变更的地址。如果你发现某个链接不再可用，可以通过相关渠道反馈，帮助保持索引的准确性。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">⚬ 我自己可以提交站点吗？</div>
+    <div class="faq-a">目前导航的收录由维护方筛选，暂未开放公开提交。不过你可以通过 <a href="https://dh-nangong.com">南宫导航</a> 页面内的联系方式（如果有的话）提出建议。</div>
+  </div>
+</div>
+
+<div class="tip-box">
+  <span>📌 使用建议：</span> 导航的价值在于帮你更快定位到目标，但每个链接的实际可靠性仍需你自己判断。遇到不确定的网站时，建议通过多个来源交叉验证。
+</div>
+
+<div class="footer-note">
+  <p>本页为介绍说明页，完整导航功能请直接访问 <a href="https://dh-nangong.com">南宫导航</a>。</p>
+</div>
+
+</body>
+</html>
