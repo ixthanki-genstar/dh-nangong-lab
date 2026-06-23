@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 信息索引与资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafafa;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2.4rem 1.2rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3.2rem 2.4rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 3.6rem;
+            border-bottom: 1px solid #ecf0f3;
+            padding-bottom: 2.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2b;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #4b5b6c;
+            max-width: 580px;
+        }
+
+        .hero .sub span {
+            background: #f0f4f8;
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #2e4a6b;
+        }
+
+        /* 通用标题 */
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin: 2.4rem 0 1.2rem 0;
+            color: #0f1a2b;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #b0c8da;
+            padding-left: 1rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        /* 说明 / 段落 */
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            color: #2a384a;
+        }
+
+        .intro-text {
+            font-size: 1.02rem;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 优势卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.6rem 0 2rem 0;
+        }
+
+        .card {
+            background: #f6f9fc;
+            border-radius: 16px;
+            padding: 1.4rem 1.2rem;
+            transition: background 0.15s;
+        }
+
+        .card:hover {
+            background: #eef4fa;
+        }
+
+        .card .icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #132433;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #3b4c5f;
+            margin-bottom: 0;
+        }
+
+        /* 引用/提示块 */
+        .note {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.4rem 1.6rem;
+            margin: 2.2rem 0;
+            border-left: 2px solid #b4cbd9;
+            font-size: 0.95rem;
+            color: #1e3144;
+        }
+
+        .note strong {
+            font-weight: 500;
+            color: #073b4f;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e6ecf2;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #022b3a;
+            font-size: 0.98rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #3c5168;
+        }
+
+        /* 底部链接区域 */
+        .footer-links {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2e9f0;
+            font-size: 0.9rem;
+            color: #3a4d62;
+        }
+
+        .footer-links a {
+            color: #1e4660;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.1s;
+            font-weight: 450;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #1e4660;
+        }
+
+        .footer-links .sep {
+            margin: 0 0.6rem;
+            color: #b2c4d6;
+        }
+
+        .footer-meta {
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: #6c7f94;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            .page {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .note {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero -->
+    <div class="hero">
+        <h1>乐鱼 · 资料索引</h1>
+        <div class="sub">
+            从信息整理与内容归档切入，提供有条理的参考入口。<span>持续梳理</span>
+        </div>
+    </div>
+
+    <!-- 介绍/切入角度 -->
+    <p class="intro-text">
+        在日常浏览与资料收集的过程中，不少信息值得被归拢、标注和反复回溯。基于这一习惯，<a href="https://chinam-leyu.com" style="color:#1e4660;text-decoration:none;border-bottom:1px solid #b0c8da;font-weight:500;">乐鱼</a>被设计为一个轻量的内容锚点——不追求覆盖所有分支，而是围绕某类主题做静态整理，方便自己与他人快速定位上下文。
+    </p>
+
+    <!-- 特点 / 优势区 -->
+    <h2>整理思路</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>条目化结构</h3>
+            <p>每个模块尽量保持单一焦点，避免信息过载，适合逐步浏览。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔍</div>
+            <h3>低噪点布局</h3>
+            <p>减少装饰元素与动态干扰，把视觉重心放在文字与层级上。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🧩</div>
+            <h3>主题归类</h3>
+            <p>按资料类型、使用场景做分区，便于按需取用，而非无序堆叠。</p>
+        </div>
+        <div class="card">
+            <div class="icon">📎</div>
+            <h3>引用标注</h3>
+            <p>外部参考与内部注释分离，保持正文干净，同时保留溯源路径。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：具体场景与取向 -->
+    <h2>索引取向</h2>
+    <p>
+        站点目前主要收录三类内容：其一是工具与平台的使用备忘，包括配置片段与操作流程；其二是特定概念或术语的简短解释，常以卡片形式呈现；其三是外部文章与文档的链接汇总，附带简短评注。内容本身保持克制，不追求面面俱到，但力求每一条都有实际可用的参考价值。
+    </p>
+    <p>
+        例如在“乐鱼”主页面中，你能看到按字母或主题排列的条目清单，每个条目都对应一段笔记或出处说明。这种结构模仿了纸质索引卡片的逻辑——扁平、可扩展、容易修订。
+    </p>
+
+    <!-- 提示 / note 块 -->
+    <div class="note">
+        <strong>一点说明：</strong> 这里不是一个产品介绍站或营销落地页，而是一个偏向静态与整理的资料页面。内容会随着阅读与使用不定期更新，条目也会根据反馈做微调。如果你发现某个链接失效或分类不妥，可以通过页面底部的联系方式告知。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+        <div class="q">◈ 资料多久更新一次？</div>
+        <div class="a">没有固定周期，通常在阅读新资料或解决具体问题之后补充。改动会记录在更新日志中。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">◈ 内容偏向哪个领域？</div>
+        <div class="a">集中在技术文档、方法笔记与轻量人文参考，不过度限定范围，但会注意保持主题相关性。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">◈ 是否允许转载或引用？</div>
+        <div class="a">条目大多基于公开信息整理，引用请注明出处。若内容来自特定文章，会附上原文链接。</div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <a href="https://chinam-leyu.com">乐鱼</a>
+        <span class="sep">·</span>
+        <a href="#" style="cursor:default;border-bottom:none;color:#6c7f94;">条目索引</a>
+        <span class="sep">·</span>
+        <a href="#" style="cursor:default;border-bottom:none;color:#6c7f94;">更新记录</a>
+        <span class="sep">·</span>
+        <a href="#" style="cursor:default;border-bottom:none;color:#6c7f94;">联系</a>
+        <div class="footer-meta">
+            资料归档 · 持续修订 · 当前版本 2025
+        </div>
+    </div>
+</div>
+</body>
+</html>
