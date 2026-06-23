@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>乐鱼 · 查询与对照</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f7f9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e2b30;
+      padding: 1.5rem 1rem 3rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 820px;
+      width: 100%;
+    }
+
+    /* 网格卡片呼吸背景 */
+    .grid-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(1px);
+      border-radius: 28px;
+      padding: 1.8rem 1.6rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 50, 50, 0.04), 0 2px 6px rgba(20, 80, 80, 0.02);
+      transition: box-shadow 0.2s ease;
+      border: 1px solid rgba(60, 140, 140, 0.08);
+    }
+
+    .grid-card:hover {
+      box-shadow: 0 12px 28px rgba(30, 100, 100, 0.06);
+    }
+
+    /* 蓝绿色点缀 */
+    .accent-border {
+      border-left: 5px solid #2f9a9e;
+      padding-left: 1.2rem;
+    }
+
+    .accent-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #3ba6aa;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      opacity: 0.7;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 420;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+      color: #124c50;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #3f6a6e;
+      font-weight: 340;
+      border-bottom: 1px dashed #b3d4d6;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .opener {
+      font-size: 1.3rem;
+      font-weight: 370;
+      color: #1d5a5e;
+      margin-bottom: 1.6rem;
+      padding: 0.2rem 0 0.2rem 1rem;
+      border-left: 3px solid #3ba6aa;
+      background: linear-gradient(to right, rgba(55, 150, 150, 0.02), transparent);
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      color: #253c40;
+    }
+
+    a {
+      color: #1d7c7f;
+      text-decoration: none;
+      border-bottom: 1px dotted #8ac5c7;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 400;
+    }
+
+    a:hover {
+      color: #0b4f52;
+      border-bottom: 1px solid #1d7c7f;
+    }
+
+    /* 特点列表 —— 卡片网格感 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .feature-item {
+      background: #ecf5f5;
+      border-radius: 24px;
+      padding: 1.3rem 1rem 1rem 1.2rem;
+      border: 1px solid #d0e5e6;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 1px 4px rgba(0,30,30,0.02);
+    }
+
+    .feature-item:hover {
+      background: #e2f0f0;
+      transform: translateY(-2px);
+    }
+
+    .feature-item .feat-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #2f9a9e;
+      border-radius: 2px;
+      margin-right: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .feature-item strong {
+      font-weight: 500;
+      color: #134b4e;
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 1.05rem;
+    }
+
+    .feature-item span {
+      font-size: 0.94rem;
+      color: #2f5559;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .quote-block {
+      background: #e1f0f0;
+      padding: 1.2rem 1.5rem;
+      border-radius: 40px 12px 40px 12px;
+      margin: 1.8rem 0 1.2rem;
+      border: 1px solid #c6dbdd;
+      color: #1e484b;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #d3e4e5;
+      padding-bottom: 1rem;
+    }
+
+    .faq-q {
+      font-weight: 450;
+      color: #155e62;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-q::before {
+      content: "▹";
+      color: #3ba6aa;
+      margin-right: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .faq-a {
+      color: #2e5559;
+      padding-left: 1.6rem;
+      font-size: 0.96rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2.8rem;
+      font-size: 0.9rem;
+      color: #597e81;
+      border-top: 1px solid #d0e0e1;
+      padding-top: 1.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .inline-link-wrap {
+      margin: 1rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem 2.5rem; }
+      h1 { font-size: 1.8rem; }
+      .grid-card { padding: 1.4rem 1.1rem; border-radius: 24px; }
+      .feature-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .opener { font-size: 1.15rem; }
+      .subhead { font-size: 1rem; }
+      .feature-item { padding: 1rem 0.9rem; }
+      .quote-block { padding: 1rem 1.2rem; }
+    }
+
+    @media (max-width: 380px) {
+      .container { min-width: 0; }
+      .grid-card { padding: 1rem 0.8rem; }
+      .faq-a { padding-left: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 开场短句 -->
+  <div class="grid-card" style="padding-bottom: 1.4rem;">
+    <div class="opener">
+      有时需要一个安静的地方，把信息摊开，慢慢对照。
+    </div>
+    <p style="margin-bottom: 0.2rem;">
+      查询、比较、翻阅——日常里许多细小的需求，并不总是轰轰烈烈。它们更像是在安静的间隙里，想确认一个名称、一段描述、一个来源。而<strong>乐鱼</strong>所提供的内容，恰好可以放进这个间隙里。
+    </p>
+  </div>
+
+  <!-- 承接段落 + 自然链接 -->
+  <div class="grid-card">
+    <p>
+      从个人的阅读习惯到团队的信息整理，从快速的术语确认到延伸出来的背景了解，许多场景都依赖一个可靠的信息锚点。 
+      <a href="https://chinaofficial-leyu.com">乐鱼</a> 在持续积累的内容基础上，让这种对照变得简单。它不追求喧哗，而是试图在每一次查询里给出清晰、克制的回应。
+    </p>
+    <p>
+      举个例子：当你需要了解某一概念的常见表述，或是在不同资料间寻找一致的解释，一个稳定的参考源比什么都重要。 
+      <a href="https://chinaofficial-leyu.com" style="border-bottom: 1px solid #8ac5c7;">乐鱼</a> 的角色正是这样——不替代你的判断，但提供可供对照的内容。
+    </p>
+  </div>
+
+  <!-- 特点列表 网格卡片 -->
+  <div class="grid-card">
+    <h2 style="font-weight: 380; font-size: 1.5rem; color: #104f53; margin-bottom: 0.8rem; letter-spacing: -0.3px;">
+      · 日常中可倚靠的几个侧面
+    </h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong><span class="feat-icon"></span> 查询温和</strong>
+        <span>不堆砌术语，不制造焦虑。每一次返回都平实、直接，适合快速浏览或逐句对照。</span>
+      </div>
+      <div class="feature-item">
+        <strong><span class="feat-icon"></span> 结构干净</strong>
+        <span>内容以段落和条目呈现，便于在碎片时间里抓取重点，也适合全文通读。</span>
+      </div>
+      <div class="feature-item">
+        <strong><span class="feat-icon"></span> 延伸自然</strong>
+        <span>从一条信息出发，可以自然地关联到相关的背景或补充，不强行跳转。</span>
+      </div>
+      <div class="feature-item">
+        <strong><span class="feat-icon"></span> 视觉友好</strong>
+        <span>蓝绿色调与卡片网格让阅读节奏清晰，在手机和电脑上都保持克制与舒适。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景 + 温和结尾前奏 -->
+  <div class="grid-card">
+    <div class="quote-block">
+      <p style="margin-bottom: 0.2rem; font-style: normal;">
+        “很多时候我们需要的不是更多的信息，而是一个可以反复回来对照的坐标。”
+      </p>
+      <p style="text-align: right; font-size: 0.9rem; color: #3f6a6e; margin-bottom: 0;">—— 一次普通的查阅笔记</p>
+    </div>
+
+    <p>
+      无论是午后快速检索一个名词的准确定义，还是在长文档里反复确认某处表述，<a href="https://chinaofficial-leyu.com">乐鱼</a> 都尽量让这个过程没有摩擦。它不承诺无法验证的东西，只把内容整理好，等你来翻看。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要式 (非标准FAQ, 更像摘要) -->
+  <div class="grid-card">
+    <h3 style="font-weight: 380; font-size: 1.25rem; color: #195f63; margin-bottom: 1rem; display: flex; align-items: center;">
+      <span style="background: #3ba6aa; width: 6px; height: 6px; display: inline-block; border-radius: 10px; margin-right: 10px;"></span> 
+      一些常见的问题轮廓
+    </h3>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">信息更新频率如何？</div>
+        <div class="faq-a">内容会基于可验证的来源进行周期性梳理与补充，不追求每日更新，但保持稳定迭代。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以在手机端顺畅阅读吗？</div>
+        <div class="faq-a">适配移动端是基本考虑，网格卡片和字体缩放都针对小屏幕做了调整，阅读体验连续。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否提供延伸阅读的指引？</div>
+        <div class="faq-a">是的。每个模块里会有自然的衔接，你可以根据兴趣进一步查看相关条目或对照内容。</div>
+      </div>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #3e6b6f;">
+      如果你有更具体的问题或对照需求，直接去 
+      <a href="https://chinaofficial-leyu.com">乐鱼</a> 
+      看看，或许比猜想更快得到答案。
+    </p>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="grid-card" style="background: rgba(235, 247, 247, 0.6); border: 1px solid #c8ddde;">
+    <p style="margin-bottom: 0.4rem; font-size: 1.05rem;">
+      把查询当作一次安静的对话，把对照当作理解的一部分。
+    </p>
+    <p style="color: #2e6266;">
+      乐鱼只是那个帮你把内容摊开的地方——你可以随时来，随时走，带着你需要的，或者留下暂时不用的。
+    </p>
+    <div style="margin-top: 1rem; font-size: 0.9rem; color: #3f7a7e;">
+      <span class="accent-dot"></span> 下次需要对照时，或许你会想起这里。
+    </div>
+  </div>
+
+  <!-- footer 一句话 -->
+  <div class="footer-note">
+    <span style="background: #d6eaea; padding: 0.1rem 0.5rem; border-radius: 20px; color: #1a5a5e;">乐鱼 · 查询对照 · 延伸阅读</span>
+  </div>
+
+</div>
+</body>
+</html>
