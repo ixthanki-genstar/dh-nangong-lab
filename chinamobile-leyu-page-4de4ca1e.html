@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 从用途出发</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #2e2e2e;
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        .page {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        /* —— hero 横幅 —— */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 48px 40px 44px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e6e6e6;
+            margin-bottom: 44px;
+            transition: box-shadow 0.25s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1c1c1c;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            font-weight: 300;
+            color: #7a7a7a;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6a6a6a;
+            border-left: 3px solid #c8c8c8;
+            padding-left: 18px;
+            margin-top: 6px;
+            max-width: 680px;
+        }
+
+        /* —— 卡片通用 —— */
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 34px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e3e3e3;
+            margin-bottom: 28px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            letter-spacing: 0.01em;
+            color: #262626;
+            border-bottom: 1px solid #ececec;
+            padding-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 18px;
+            font-size: 0.98rem;
+            color: #3e3e3e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card .meta-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            border-radius: 30px;
+            padding: 2px 14px;
+            font-size: 0.78rem;
+            color: #5a5a5a;
+            letter-spacing: 0.3px;
+            margin-right: 8px;
+        }
+
+        /* —— 三段卡片细节微调 —— */
+        .card-double {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .card-double .card {
+            flex: 1 1 260px;
+        }
+
+        .card-double .card h2 {
+            font-size: 1.2rem;
+        }
+
+        /* —— 页尾提示 —— */
+        .footer-note {
+            background: transparent;
+            border-top: 1px solid #dcdcdc;
+            margin-top: 36px;
+            padding: 28px 0 8px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #636363;
+        }
+
+        .footer-note a {
+            color: #2e2e2e;
+            text-decoration: none;
+            border-bottom: 1px dotted #9f9f9f;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom: 1px solid #2e2e2e;
+            color: #000;
+        }
+
+        .inline-link {
+            color: #3a3a3a;
+            text-decoration: none;
+            border-bottom: 1px solid #c6c6c6;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .footer-note .small-meta {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: #9b9b9b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 30px 22px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 24px 20px;
+            }
+            .card-double {
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+
+        /* 背景说明用细线条点缀 */
+        .bg-note {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.01);
+        }
+
+        .bg-note p {
+            color: #464646;
+            font-size: 0.96rem;
+            margin-bottom: 10px;
+        }
+
+        .bg-note .cite {
+            font-size: 0.85rem;
+            color: #7a7a7a;
+            padding-left: 14px;
+            border-left: 2px solid #d0d0d0;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <h1>识别一个用途<span> · 乐鱼</span></h1>
+        <div class="sub">
+            在信息过载的时代，人们常问：这个网站到底做什么？<br>
+            下面从三个层面，给出自然且克制的回答。
+        </div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="bg-note">
+        <p>为什么需要专门介绍页面？当你首次打开一个陌生站点，最直接的困惑往往是它的功能核心。乐鱼所呈现的内容与交互，围绕着一组清晰的服务逻辑展开，不堆砌术语，也不故弄玄虚。下文从背景、特征、典型使用场景三个角度，帮助你快速建立判断。</p>
+        <div class="cite">—— 以下内容基于站点公开信息与常规交互逻辑归纳，不含任何未经证实的推测。</div>
+    </div>
+
+    <!-- 三段自然介绍：用两个卡片组合 + 单独一张卡片，形成节奏变化 -->
+    <div class="card-double">
+        <div class="card">
+            <h2>一、<span class="meta-tag">背景</span> 从信息聚合到轻量服务</h2>
+            <p>很多工具型站点都经历过从“提供信息”到“提供轻量服务”的演化。<a href="https://chinamobile-leyu.com" class="inline-link">乐鱼</a>在这个脉络里选择了一条相对克制的路线：它没有急于覆盖所有功能，而是先梳理出用户最常遇到的几个需求节点，并围绕这些节点搭建起可交互的框架。从页面结构来看，信息层级偏平，操作提示也不刻意突出，这种设计语言本身就暗示了它的定位——更接近一个辅助判断的界面，而不是一个强引导的营销页。</p>
+            <p>你可以在首页的导航与内容分区中看到这种思路的延伸：视觉上没有多余的装饰元素，卡片式的信息组承担了主要的叙事功能。对于初次访问的人来说，这种结构降低了认知门槛。</p>
+        </div>
+        <div class="card">
+            <h2>二、<span class="meta-tag">特点</span> 几个值得注意的细节</h2>
+            <p>首先是反馈速度。页面中的多数交互不需要长时间等待，这种即时感在很多同类站点中并不常见。其次，文本内容保持了一种中性的叙述语气，没有使用夸张的断言或情感强烈的呼吁。你会发现它的文案倾向于陈述“做了什么”而不是“你应该做什么”。</p>
+            <p>另外值得一提的是，站点的跳转逻辑比较直接。<a href="https://chinamobile-leyu.com" class="inline-link">乐鱼</a>在内部链接与外部引用的处理上保持了清晰的分界，你不会在浏览时被突然带到不相关的页面。对于希望快速了解服务边界的人来说，这种透明度降低了试错的成本。</p>
+        </div>
+    </div>
+
+    <!-- 第三张卡片独立，制造节奏变化 -->
+    <div class="card">
+        <h2>三、<span class="meta-tag">场景</span> 一个人可能什么时候用到它？</h2>
+        <p>假设你正在寻找一个能够快速核对某些标准信息的界面，或者你希望在一个没有广告干扰的环境里完成简单的查询与比较。又或者，你只是偶然看到某个服务入口，想在不注册、不留下个人信息的前提下先了解它的基本面貌。<a href="https://chinamobile-leyu.com" class="inline-link">乐鱼</a>在上述场景中都能提供一个相对纯粹的界面。</p>
+        <p>它的使用逻辑不依赖大量的前置知识，也不需要你事先理解某个行业术语。从实际体验来看，它更像是为那些“只想先看一眼”的用户准备的缓冲地带。当然，每个站点的适用边界最终取决于你个人的判断标准，这里只是提供一个观察的起点。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>
+            如果你想亲自确认以上描述是否符合自己的感受，可以前往 
+            <a href="https://chinamobile-leyu.com">乐鱼</a>
+            ，花几分钟浏览首页的结构与内容。
+        </p>
+        <span class="small-meta">页面基于公开信息整理 · 无诱导内容 · 2025</span>
+    </div>
+
+</div>
+</body>
+</html>
